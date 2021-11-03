@@ -1,4 +1,12 @@
+import { createStore } from '@/store';
+import { Button } from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
 import { createApp } from 'vue';
 import App from './App.vue';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+createStore();
+
+app.use(Button);
+
+app.mount('#app');

@@ -1,27 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div>
+    <a-button type="primary" @click="toggleLoading">Hello, World!</a-button>
+    <div>Is loading: {{ isFilesStructureLoading }}</div>
+  </div>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue';
-  import HelloWorld from './components/HelloWorld.vue';
+  import { useAppStore } from '@/store';
+  import { setFilesStructureLoading } from '@/store/modules/filesStructure';
 
   export default defineComponent({
     name: 'App',
-    components: {
-      HelloWorld,
+    setup() {
+      const { isFilesStructureLoading } = useAppStore((store) => store.filesStructure);
+
+      const toggleLoading = () => {
+        setFilesStructureLoading(!isFilesStructureLoading.value);
+      };
+
+      return { isFilesStructureLoading, toggleLoading };
     },
   });
 </script>
 
-<style lang="scss">
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-</style>
+<style scoped lang="scss"></style>
