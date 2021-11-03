@@ -12,6 +12,6 @@ export const state = toRefs(
       folders: [],
       files: [],
     },
-    isFilesStructureLoading: false,
+    isFilesStructureLoading: true,
   }),
 );

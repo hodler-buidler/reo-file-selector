@@ -2,8 +2,8 @@ import { plugins, store } from './index';
 import { ActionFunction, CreateActionOptions, NameSpaceFunction } from './types';
 
 export function createAction<T, K>(action: ActionFunction<T, K>, options: CreateActionOptions) {
-  return (payload: T): K => {
-    const result = action(payload);
+  return (payload?: T): K => {
+    const result = action(payload as T);
     plugins.forEach((plugin) =>
       plugin({
         ...options,
