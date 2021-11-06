@@ -10,9 +10,13 @@
           Select Files
         </a-button>
       </div>
-      <div class="selected-display content__selected-display">
-        <SelectedFilesDisplay />
-      </div>
+      <perfect-scrollbar class="selected-display content__selected-display">
+        <SelectedFilesDisplay
+          v-if="selectedFilesIds.length"
+          :files-structure="filesStructure"
+          :selected-files-ids="selectedFilesIds"
+        />
+      </perfect-scrollbar>
     </div>
 
     <FilesStructureModal
@@ -88,9 +92,7 @@
   }
 
   .selected-display {
-    min-width: 375px;
-    max-width: 375px;
-    min-height: 300px;
-    max-height: 300px;
+    width: 480px;
+    height: 300px;
   }
 </style>
