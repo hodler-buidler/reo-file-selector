@@ -66,3 +66,18 @@ export const printInfo = createAction(
   },
   { name: namespace('printInfo') },
 );
+
+export const setIsFilesStructureModalOpened = createAction(
+  (isOpened: boolean) => {
+    state.isFilesStructureModalOpened.value = isOpened;
+  },
+  { name: namespace('setIsFilesStructureModalOpened') },
+);
+
+export const openFilesStructureModal = createAction(() => setIsFilesStructureModalOpened(true), {
+  name: namespace('openFilesStructureModal'),
+});
+
+export const closeFilesStructureModal = createAction(() => setIsFilesStructureModalOpened(false), {
+  name: namespace('closeFilesStructureModal'),
+});

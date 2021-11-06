@@ -3,6 +3,8 @@ export type FilesStructure = {
   files: File[];
 };
 
+export type FilesStructureItem = Folder | File;
+
 export type Folder = {
   id: string;
   name: string;

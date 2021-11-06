@@ -1,0 +1,11 @@
+@import 'foundation/colors';
+@import 'foundation/typography';
+
+::selection {
+  background: var(--app-selection-bg-color);
+}
+
+body {
+  font-size: var(--base-font-size);
+  color: var(--app-text-color);
+}
