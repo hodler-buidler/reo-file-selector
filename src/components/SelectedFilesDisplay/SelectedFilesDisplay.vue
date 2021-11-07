@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class="title wrapper__title">Files selected</div>
+    <div class="title wrapper__title">
+      {{ filters.capitalizeFirst($t('files-selected')) }}
+    </div>
     <div class="files-container">
       <div v-for="file in files" :key="file.id" class="file-item files-container__item">
         {{ filters.shortenFileName(file.name) }}

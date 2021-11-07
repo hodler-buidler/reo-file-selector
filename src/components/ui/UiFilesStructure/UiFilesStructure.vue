@@ -7,7 +7,9 @@
   >
     <template v-if="isEmpty">
       <slot name="emptyFolderContent">
-        <div class="empty-folder-content">This folder is empty</div>
+        <div class="empty-folder-content">
+          {{ $t('empty-folder-message') }}
+        </div>
       </slot>
     </template>
     <template v-else>

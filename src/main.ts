@@ -1,3 +1,4 @@
+import { i18n } from '@/i18n';
 import AntComponents from '@/plugins/AntComponents';
 import UiComponents from '@/plugins/UiComponents';
 import { createStore } from '@/store';
@@ -12,6 +13,7 @@ const PerfectScrollbar = require('vue3-perfect-scrollbar/dist/vue3-perfect-scrol
 const app = createApp(App);
 createStore();
 
+app.use(i18n);
 app.use(PerfectScrollbar);
 app.use(AntComponents);
 app.use(UiComponents);

@@ -1,4 +1,5 @@
 import { ReoAPI } from '@/api/reo';
+import { localize } from '@/i18n';
 import { printError } from '@/store/modules/app';
 import { createAction, createNameSpace } from '@/store/utils';
 import type { FilesStructure } from '@/types/filesStructure';
@@ -27,8 +28,8 @@ export const loadFilesStructure = createAction(
       state.filesStructure.value = await ReoAPI.fetchFilesStructure();
     } catch (e) {
       printError({
-        title: `Network error. Could't fetch files structure.`,
-        description: `Please try reload the page.`,
+        title: localize('files-fetch-error-title'),
+        description: localize('suggest-page-reload'),
       });
     } finally {
       setFilesStructureLoading(false);

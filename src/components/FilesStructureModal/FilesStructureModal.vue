@@ -55,6 +55,7 @@
     onMounted,
     onUnmounted,
   } from 'vue';
+  import { localize } from '@/i18n';
   import { ArrowLeftOutlined } from '@ant-design/icons-vue';
   import { FilesStructure, Folder, File, FilesStructureItem } from '@/types/filesStructure';
   import { findFolderById, isFolder, isFile } from '@/utils/filesStructure';
@@ -70,7 +71,7 @@
     props: {
       visible: { type: Boolean, required: true },
       filesStructure: { type: Object as PropType<FilesStructure>, required: true },
-      rootName: { type: String, default: 'Root' },
+      rootName: { type: String, default: filters.capitalizeFirst(localize('root')) },
       selectedFilesIds: { type: Array as PropType<string[]>, default: () => [] },
       allowFilesSelection: { type: Boolean, default: true },
       canSelectFile: { type: Function as PropType<CanSelectFileFunction>, default: () => true },
@@ -80,7 +81,6 @@
     setup(props, { emit }) {
       /* Vitals */
       const currentFolderId = ref('');
-
       const currentFolder = computed((): FilesStructure | Folder => {
         if (currentFolderId.value) {
           const folderContents = findFolderById(props.filesStructure, currentFolderId.value);
@@ -171,7 +171,7 @@
       const isSelectButtonDisabled = computed(() => !internalSelectedFilesIds.value.length);
       const selectedButtonContent = computed(() => {
         const amountFiles = internalSelectedFilesIds.value.length || '';
-        return `Select ${amountFiles} files`;
+        return filters.capitalize(localize('select-files', { amount: amountFiles }));
       });
 
       /* Visibility */

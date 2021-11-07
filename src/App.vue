@@ -7,7 +7,7 @@
           :loading="isFilesStructureLoading"
           @click="openFilesStructureModal"
         >
-          Select Files
+          {{ filters.capitalize($t('select-files')) }}
         </a-button>
       </div>
       <perfect-scrollbar class="selected-display content__selected-display">
@@ -23,7 +23,7 @@
       v-model:selectedFilesIds="selectedFilesIds"
       :visible="isFilesStructureModalOpened"
       :files-structure="filesStructure"
-      root-name="Files Structure"
+      :root-name="filters.capitalize($t('files-structure'))"
       :loading="isFilesStructureLoading"
       :should-hide-file="shouldHideFile"
       @closed="closeFilesStructureModal"
@@ -42,6 +42,7 @@
   import { openFilesStructureModal, closeFilesStructureModal } from '@/store/modules/app';
   import useAppMessagesDisplay from '@/composables/useAppMessagesDisplay';
   import '@/assets/styles/global.scss';
+  import filters from '@/utils/filters';
 
   export default defineComponent({
     name: 'App',
@@ -68,6 +69,7 @@
         closeFilesStructureModal,
         shouldHideFile,
         selectedFilesIds,
+        filters,
       };
     },
   });

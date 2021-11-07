@@ -41,6 +41,8 @@
   import { ref, watch, watchEffect, computed, defineComponent } from 'vue';
   import { CloseOutlined } from '@ant-design/icons-vue';
   import { StylingVariablesMap } from '@/types/common';
+  import { localize } from '@/i18n';
+  import filters from '@/utils/filters';
 
   export default defineComponent({
     name: 'UiModal',
@@ -50,7 +52,7 @@
 
       centered: { type: Boolean, default: true },
       loading: { type: Boolean, default: false },
-      loadingText: { type: String, default: 'Loading...' },
+      loadingText: { type: String, default: `${filters.capitalize(localize('loading'))}...` },
       mask: { type: Boolean, default: false },
       destroyOnClose: { type: Boolean, default: false },
 
