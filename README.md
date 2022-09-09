@@ -1,4 +1,6 @@
-# REO-file-selector
+# Files&Folders structure and selection UI
+
+DEMO: https://hodler-buidler.github.io/files-selector/
 
 **Task Description**
 [Notion page](https://reoso.notion.site/File-Selector-case-7fb10e9fa9f242e9b30228dcaca7eb87)
