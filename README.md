@@ -1,8 +1,5 @@
 # REO-file-selector
 
-**DEMO**
-[https://nikitosgolubev.github.io/files-selector/](https://nikitosgolubev.github.io/files-selector/)
-
 **Task Description**
 [Notion page](https://reoso.notion.site/File-Selector-case-7fb10e9fa9f242e9b30228dcaca7eb87)
 
